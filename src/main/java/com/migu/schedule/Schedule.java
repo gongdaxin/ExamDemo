@@ -31,6 +31,8 @@ public class Schedule {
 
     public int addTask(int taskId, int consumption) {
         // TODO 方法未实现
+		
+		
         return ReturnCodeKeys.E000;
     }
 
