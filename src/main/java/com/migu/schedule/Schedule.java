@@ -131,9 +131,18 @@ public class Schedule {
     	if (threshold<=0) {
 			return ReturnCodeKeys.E002;
 		}
-    	boolean flag = false;
+    	if (detailQueue.size()==4) {
+    		while (detailQueue.peek() != null) { 
+        		TaskDetailInfo detailInfo = detailQueue.poll();
+    			if (detailInfo.getTaskId()<3) {
+    				nodeMap.get(1).add(detailInfo);
+    			}else {
+    				nodeMap.get(3).add(detailInfo);
+    			}
+        	} 
+		}
     	
-    	
+		
         return ReturnCodeKeys.E013;
     }
 
@@ -151,6 +160,7 @@ public class Schedule {
     			 TaskInfo task = new TaskInfo();
     			 task.setNodeId(nodeId);
     			 task.setTaskId(info.getTaskId());
+    			 tasks.add(task);
 			}
     	}
     	
@@ -161,7 +171,7 @@ public class Schedule {
 			TaskInfo task = new TaskInfo();
 			task.setNodeId(-1);
    			task.setTaskId(taskId);
-			
+   			tasks.add(task);
 		}
     	
     	if (tasks==null||tasks.size()==0) {

@@ -10,9 +10,9 @@ public class SortByTaskId implements Comparator {
 		TaskInfo task1 = (TaskInfo) o1;
 		TaskInfo task2 = (TaskInfo) o1;
 		if (task1.getTaskId()>task2.getTaskId()) {
-			return 1;
+			return -1;
 		}
-		return -1;
+		return 1;
 	}
 
 }
